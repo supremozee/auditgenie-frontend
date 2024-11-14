@@ -58,7 +58,7 @@ const MainContent = () => {
         <FaPaperclip
           className="absolute left-4 bottom-4 text-gray-600 cursor-pointer hover:text-gray-800"
           size={20}
-          title="Attach File"
+          title="Attach some File"
         />
         <textarea
           value={input}

@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import WelcomePage from '../components/WelcomePage';
 import BackIcon from '../components/BackButton';
 
@@ -31,18 +29,17 @@ const ForgotPassword = () => {
       const data = await response.json();
 
       if (response.status === 200) {
-        toast.success('Password reset link sent to your email');
+        alert(data.data)
       } else {
         setError(data.data);
-        toast.error(data.data);
+        alert(data.data)
       }
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
-        toast.error(err.message);
+        alert(err.message)
       } else {
         setError('An unknown error occurred');
-        toast.error('An unknown error occurred');
       }
     }
   };

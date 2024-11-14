@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { toast} from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 import Input from '@/app/components/Input';
 import Button from '@/app/components/Button';
 import { z } from 'zod';
@@ -60,16 +60,19 @@ const ResetPassword = () => {
       const data = await response.json();
 
       if (response.status === 201) {
-        toast.success(data.data);
+        // toast.success(data.data);
+        alert(data.data)
         router.push('/login');
       } else {
         setError(data.data);
-        toast.error(data.data);
+        alert(data.data)
+        // toast.error(data.data);
       }
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
-        toast.error(err.message);
+        alert(err.message)
+        // toast.error(err.message);
       }
     }
   };

@@ -5,8 +5,6 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Link from 'next/link';
 import { z } from 'zod';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -60,7 +58,7 @@ const RegisterForm = () => {
       const data = await response.json();
 
       if (response.status === 201 && data.success) {
-        toast.success('Account created successfully!');
+        alert(data.data)
         setFormData({
           fullName: '',
           email: '',
@@ -69,15 +67,14 @@ const RegisterForm = () => {
         });
       } else {
         setError(data.data);
-        toast.error(data.data);
+        alert(data.data)
       }
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
-        toast.error(err.message);
+        alert(err.message)
       } else {
         setError('An unknown error occurred');
-        toast.error('An unknown error occurred');
       }
     }
   };
@@ -144,7 +141,6 @@ const RegisterForm = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };

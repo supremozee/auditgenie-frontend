@@ -6,7 +6,6 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
-import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 
 const LoginForm = () => {
@@ -41,18 +40,18 @@ const LoginForm = () => {
 
       if (response.status === 201) {
         Cookies.set('token', data.token);
-        toast.success('Login successful');
+        alert(data.data)
         localStorage.setItem('fullName', data?.data?.data?.fullName);
         setReLoginTimeout();
         router.push('/dashboard');
       } else {
         setError(data.data);
-        toast.error(data.data);
+        alert(data.data)
       }
     } catch (err) {
       if (err instanceof Error) {
+            alert(err.message)
         setError(err.message);
-        toast.error(err.message);
       }
     }
   };
@@ -60,7 +59,7 @@ const LoginForm = () => {
   const setReLoginTimeout = () => {
     const tenHours = 10 * 60 * 60 * 1000;
     setTimeout(() => {
-      toast.info('Session expired. Please log in again.');
+      alert("session expired, pls login again")
       Cookies.remove('token');
       window.location.href = '/login';
     }, tenHours);

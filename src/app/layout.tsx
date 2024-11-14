@@ -1,8 +1,8 @@
 "use client";
 
 import "./globals.css";
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer } from 'react-toastify';
 import Head from 'next/head';
 
 
@@ -20,7 +20,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <body className="antialiased">
-        <ToastContainer />
+        {/* <ToastContainer /> */}
         {children}
       </body>
     </html>
