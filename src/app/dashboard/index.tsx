@@ -7,7 +7,7 @@ const MainContent = () => {
   const [welcomeText, setWelcomeText] = useState('Azeez, ');
   const fullText = 'Welcome to Audit Genie';
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([{ text: 'Welcome to Audit Genie!', isUser: false }]);
+  const [messages, setMessages] = useState([{ text: 'Welcome you to Audit Genie!', isUser: false }]);
 
   useEffect(() => {
     let index = 0;
